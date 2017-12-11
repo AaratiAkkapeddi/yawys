@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>You are What You Search</title>
+	<style>
+		.wrapper{
+			padding-top:50px;
+		}
+
+		body{
+			background: whitesmoke;
+			color:blue;
+			font-family: courier;
+			font-size:20px;
+			line-height: 1.5em;
+			padding-left:15px;
+			padding-right:15px;
+		}
+    h2{
+    	font-weight: normal;
+    	font-size: 40px;
+    	line-height: 1.2em;
+    }
+    img{
+    	display: block;
+    }
+    img.large{
+    	height:100px;
+    }
+		img.small{
+			height: 50px;
+		}
+		p a{
+			color:blue;
+		}
+		.logo{
+			width: 550px;
+			padding:20px;
+			padding-left: 0;
+		}
+		.logo2{
+			width:400px;
+			padding:20px;
+		}
+		.wrapper{
+			display: block;
+			margin:0 auto;
+			max-width: 800px;
+			margin-bottom:50px;
+		}
+		button{
+			background: blue;
+			color:whitesmoke;
+			padding:10px;
+			outline:none;
+			border:none;
+			border-radius: 0px;
+		}
+		button a{
+			font-family: courier;
+			color:whitesmoke;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		button:hover {
+			opacity: 0.8;
+		}
+		
+		.nav{
+			background: rgba(244,244,244,0.8);
+			position: fixed;
+			top:0;
+			left:0;
+			padding:5px 10px;
+			font-size: 24px;
+		}
+		.nav a {
+			color:blue;
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+		}
+		.nav a:hover{
+			color: rgba(0,0,255,0.4);
+		}
+	.smiley-container{
+			position: relative;
+
+		}
+		.smiley-double{
+			top:0;
+			width:100%;
+			position: absolute;
+			margin-left:6px;
+		}
+		.nav a .tooltip {
+		    visibility: hidden;
+		    width: 150px;
+		    font-size: 12px;
+		    line-height: 1em;
+		    background-color: whitesmoke;
+		    color: blue;
+		    text-align: left;
+		    padding: 10px 0;
+		    position: absolute;
+		    z-index: 1;
+		}
+		
+		#viewer-link:hover .tooltip{
+			visibility: visible;
+		}
+
+		#home-link:hover .tooltip {
+			visibility: visible;
+		}
+
+		#autosurfers-link:hover .tooltip{
+     visibility: visible;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+			<a id='home-link' href="./index.html">⌂
+				<span id='tooltip-1' class="tooltip">home</span>
+			</a>
+			<a id='viewer-link' href="./personal_data.html">☺
+				<span id='tooltip-2' class="tooltip">explore your personal data</span>
+			</a>
+			<a id='autosurfers-link' class='smiley-container' href="./autosurfers.html">
+				☺
+				<span class="smiley-double">☺</span>
+				<span id='tooltip-3' class="tooltip">obscure your personal data</span>
+			</a>
+		</div>
+	<div class="wrapper">
+		<img class='logo' src="images/funny.gif" alt="">
+    <h2>
+			Does Your Browser Know Who You Are?<br></h2>
+			In 2011, the Google Data Liberation Front released Google Takeout, a service that allows users to download some of their Google app data like browser history, emails, or search history. This data once downloaded, comes in the form of a .json file which is difficult for the average user to parse through.
+      
+      The goal of this google search visualizer is to provide you with an easy to use tool to play through your search history chronologically and to be able to pause and reflect on why you were searching what you did at that time.<br><br>
+			<br><br>
+      <strong>Want to try out the tool?</strong><br>
+      Note: You will first need to download your search history.<br><br>
+
+      <button><a href="./instructions.html">Show Me How To Download My Search History!
+      </a></button><br><br>
+
+      <button><a href="./viewer.html">Just Take Me The Tool!</a></button>
+      <br><br><br>
+      <strong id='privacy'>Concerned About Your Privacy?</strong>
+			<br><br>
+			User search data <strong>is not kept or uploaded anywhere.</strong> Everything is done client side, so there is no need to store information on a server. You can take a look at the source code <a href='link_to_github'>here</a>.
+			<br><br>
+		</p>
+	</div>
+	
+</body>
+</html>

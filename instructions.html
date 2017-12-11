@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+	<meta charset="UTF-8">
+	<title>You Are What You Search</title>
+	<style>
+		body{
+			background: whitesmoke;
+			color:blue;
+			font-family: courier;
+			font-size:20px;
+			line-height: 1.5em;
+			padding-left:15px;
+			padding-right:15px;
+		}
+    h2{
+    	font-weight: normal;
+    	font-size: 40px;
+    	line-height: 1.2em;
+    }
+    img{
+    	display: block;
+    }
+    img.large{
+    	height:100px;
+    }
+		img.small{
+			height: 50px;
+		}
+		p a{
+			color:blue;
+		}
+		.logo{
+			width: 550px;
+			padding:20px;
+			padding-left: 0;
+		}
+		.logo2{
+			width:400px;
+			padding:20px;
+		}
+		.wrapper{
+			display: block;
+			margin:0 auto;
+			max-width: 800px;
+			margin-bottom:50px;
+		}
+		button{
+			background: blue;
+			color:whitesmoke;
+			padding:10px;
+			outline:none;
+			border:none;
+			border-radius: 0px;
+		}
+		button a{
+			font-family: courier;
+			color:whitesmoke;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		button:hover {
+			opacity: 0.8;
+		}
+		img{
+			border:2px solid blue;
+		}
+		#main_logo{
+			width:200px;
+			border:none;
+     	animation: mymove 80s  linear infinite;
+     	-webkit-animation: mymove 80s linear  infinite;
+		}
+/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes mymove {
+		    from {transform: rotate(0);}
+		    to {transform: rotate(360deg);}
+		} 
+
+		/* Standard syntax */ 
+		@keyframes mymove {
+		    from {transform: rotate(0);}
+		    to {transform: rotate(360deg);}
+		}
+		.nav{
+			background: rgba(244,244,244,0.8);
+			position: fixed;
+			top:0;
+			left:0;
+			padding:5px 10px;
+			font-size: 24px;
+		}
+		.nav a {
+			color:blue;
+			text-decoration: none;
+			position: relative;
+			display: inline-block;
+		}
+		.nav a:hover{
+/*			opacity: 0.4;*/
+			color: rgba(0,0,255,0.4);
+		}
+
+		.wrapper{
+			padding-top:50px;
+		}
+		.smiley-container{
+			position: relative;
+
+		}
+		.smiley-double{
+			top:0;
+			width:100%;
+			position: absolute;
+			margin-left:6px;
+		}
+
+		.nav a .tooltip {
+		    visibility: hidden;
+		    width: 150px;
+		    font-size: 12px;
+		    line-height: 1em;
+		    background-color: whitesmoke;
+		    color: blue;
+		    text-align: left;
+		    padding: 10px 0;
+
+		    /* Position the tooltip */
+		    position: absolute;
+		    z-index: 1;
+		}
+		
+		#viewer-link:hover .tooltip{
+			visibility: visible;
+		}
+
+		#home-link:hover .tooltip {
+			visibility: visible;
+		}
+
+		#autosurfers-link:hover .tooltip{
+     visibility: visible;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="nav">
+			<a id='home-link' href="./index.html">⌂
+				<span id='tooltip-1' class="tooltip">home</span>
+			</a>
+			<a id='viewer-link' href="./personal_data.html">☺
+				<span id='tooltip-2' class="tooltip">explore your personal data</span>
+			</a>
+			<a id='autosurfers-link' class='smiley-container' href="./autosurfers.html">
+				☺
+				<span class="smiley-double">☺</span>
+				<span id='tooltip-3' class="tooltip">obscure your personal data</span>
+			</a>
+		</div>
+		<br>
+
+		<img id='main_logo' class='logo' src="./images/filter_bubble.png" alt="">
+	<h2>How to Download your Google Search History</h2><br>
+	
+	<p>
+		1. Open Chrome<br><br>
+		<br>2. Make sure you are signed into your Google account<br><br>
+		<br>3. Go to <a href='https://takeout.google.com/settings/takeout'>This Link</a><br><br>
+		<br>4. Click "Select None"<br><br>
+		<img class='large' src="images/select_none.png" alt=""><br>
+		<br>5. Scroll down and select Searches. (If you don't see Searches as an option, this means that you don't have a history! Congrats. You could also be signed into the wrong Google account. For example, maybe a work or school account.)<br><br>
+		<img class='small' src="images/search.png" alt=""><br>
+		<br>6. Click Next<br><br>
+		<br>7. Click Create Archive<br><br>
+		<br>8. Wait until archive is done loading. Then hit Download.<br><br>
+		<img class='large' src="images/download.png" alt=""><br>
+		<br>9. Google will prompt you to sign in again before your download begins.<br><br>
+		<br>10. When you unzip the downloaded file it should look like this (you may have more or less .json files depending on how often you clear your search history)<br><br>
+		<img class='large' src="images/download_structure.png" alt=""><br>
+		<br> 11. Now that you've downloaded your data, you may or may not want to delete your history from Google. You can do so <a href='https://myactivity.google.com/delete-activity?utm_source=help'>here</a>.<br><br>
+		<br> 12. <button><a href='./viewer.html'>View your data!</a></button>
+	</p>
+	</div>
+</body>
+</html>

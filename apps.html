@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>You are What You Search</title>
+	<style>
+		body{
+			background: whitesmoke;
+			color:blue;
+			font-family: courier;
+			font-size:20px;
+			line-height: 1.5em;
+			padding-left:15px;
+			padding-right:15px;
+		}
+		body a{
+			color:blue;
+		}
+		.caption{
+			font-style: italic;
+			font-size: 14px;
+		}
+    h2{
+    	font-weight: normal;
+    	font-size: 40px;
+    	line-height: 1.2em;
+    }
+    img{
+    	display: block;
+    }
+    img.large{
+    	height:100px;
+    }
+		img.small{
+			height: 50px;
+		}
+		p a{
+			color:blue;
+		}
+		.logo{
+			width: 500px;
+			padding:20px;
+			padding-left: 0;
+		}
+		.logo2{
+			width:200px;
+			padding:20px;
+		}
+		.autosurfer{
+			display: inline-block;
+		}
+		.wrapper{
+			display: block;
+			margin:0 auto;
+			max-width: 800px;
+			margin-bottom:50px;
+		}
+		button{
+			background: blue;
+			color:whitesmoke;
+			padding:10px;
+			outline:none;
+			border:none;
+			border-radius: 0px;
+		}
+		button a{
+			font-family: courier;
+			color:whitesmoke;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		button:hover {
+			opacity: 0.8;
+		}
+		.nav{
+			background: rgba(244,244,244,0.8);
+			position: fixed;
+			top:0;
+			left:0;
+			padding:5px 10px;
+			font-size: 24px;
+		}
+		.nav a {
+			color:blue;
+			display: inline-block;
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+
+		}
+		.nav a:hover{
+			color: rgba(0,0,255,0.4);
+		}
+
+		.wrapper{
+			padding-top:50px;
+		}
+		.smiley-container{
+			position: relative;
+
+		}
+		.smiley-double{
+			top:0;
+			width:100%;
+			position: absolute;
+			margin-left:6px;
+		}
+		.nav a .tooltip {
+		    visibility: hidden;
+		    width: 150px;
+		    font-size: 12px;
+		    line-height: 1em;
+		    background-color: whitesmoke;
+		    color: blue;
+		    text-align: left;
+		    padding: 10px 0;
+
+		    /* Position the tooltip */
+		    position: absolute;
+		    z-index: 1;
+		}
+		
+		#viewer-link:hover .tooltip{
+			visibility: visible;
+		}
+
+		#home-link:hover .tooltip {
+			visibility: visible;
+		}
+
+		#autosurfers-link:hover .tooltip{
+     visibility: visible;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="nav">
+			<a id='home-link' href="./index.html">⌂
+				<span id='tooltip-1' class="tooltip">home</span>
+			</a>
+			<a id='viewer-link' href="./personal_data.html">☺
+				<span id='tooltip-2' class="tooltip">explore your personal data</span>
+			</a>
+			<a id='autosurfers-link' class='smiley-container' href="./autosurfers.html">
+				☺
+				<span class="smiley-double">☺</span>
+				<span id='tooltip-3' class="tooltip">obscure your personal data</span>
+			</a>
+		</div>
+		<h2>Autosurfers <br></h2>
+		<div class="autosurfer">
+			<img class='logo' src="./images/forbes.gif" alt="">
+      <span class="caption">Autosurfer #1</span>
+		</div><p>
+		<br>
+		Autosurfer #1 starts with a random Wikipedia article and then chooses a random link within the article to "click" next. It will continue the process forever gently taking the user through a convoluted path of random information.<br><br>
+		<button><a>Download Autosurfer #1</a></button><br><br><br>
+		<div class="autosurfer">
+			<img class='logo' src="./images/google.gif" alt="">
+			<span class="caption">Autosurfer #2</span>
+		</div><br>
+		Autosurfer #2 creates random Google Image search queries and simplifies the view to just the images and the query text. <br><br>
+
+		<button><a>Download Autosurfer #2</a></button><br><br><br>
+		<div class="autosurfer">
+			<img class='logo' src="./images/coords.gif" alt="">
+			<span class="caption">Autosurfer #3</span>
+			Autosurfer #3 pulls up a Google satellite map for a random Latitude and Longitude. Currently, this app is using coordinates found in the Global Database for Airports, so as to avoid points in the middle of the ocean where satellite imagery may be missing.  <br><br>
+
+			<button><a>Download Autosurfer #3</a></button>
+		</div>		
+<br><br>
+			</p>
+		
+			
+	</div>
+	
+</body>
+</html>

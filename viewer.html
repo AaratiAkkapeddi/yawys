@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" id="drag-drop">
+<head>
+	<meta charset="UTF-8">
+	<title>You Are What You Search</title>
+	<link rel="stylesheet" href="jquery-ui.min.css">
+	<style>
+		body{
+			background: whitesmoke;
+			color:blue;
+			font-family: courier;
+			font-size:16px;
+			padding-left:15px;
+			padding-right:15px;
+			transition:1s;
+		}
+
+		body.dawn{
+			background: lightpink;
+		}
+		body.morning{
+			background: peachpuff;
+		}
+		body.evening{
+			background: orange;
+		}
+		body.night{
+			background: black;
+			color:whitesmoke;
+		}
+
+
+    h2{
+    	margin:10px;
+    	font-weight: normal;
+    	font-size: 20px;
+    }
+    img{
+    	display: block;
+    }
+    img.large{
+    	height:100px;
+    }
+		img.small{
+			height: 50px;
+		}
+		p a{
+			color:blue;
+		}
+		.search{
+			font-size:40px;
+			margin:10px;
+			margin-top:100px;
+		}
+		.date{
+			font-size: 40px;
+			margin:10px;
+			position: fixed;
+			bottom:0;
+			left:10px;
+		}
+		.policy{
+			margin: 0 10px;
+			position: relative;
+			z-index: 9;
+		}
+		a{
+			color:blue;
+		}
+		label{
+			margin-left:10px;
+	    padding: 10px;
+	    background: blue; 
+	    font-size:  37px;
+	    display: table;
+	    color: whitesmoke;
+	    cursor: pointer;
+    }
+		input[type="file"] {
+		    display: none;
+		}
+		.logo{
+			width: 200px;
+		}
+		.wrapper{
+			display: block;
+			margin:0 auto;
+			max-width: 800px;
+			margin-bottom:50px;
+		}
+		#options{
+			display: none;
+		}
+		#options.on{
+			display: block;
+		}
+		#options button{
+			margin-left:10px;
+	    padding: 10px;
+	    background: blue; 
+	    color: whitesmoke;
+	    cursor: pointer;
+	    font-size:18px;
+	    outline: none;
+	    border:none;
+	    border-radius: 0;
+	    font-family: courier;
+		}
+		#start{
+			width: 25%;
+			float:left;
+			margin-left:2%;
+			font-size:40px;
+		}
+		#finish{
+			width: 25%;
+			float: right;
+			text-align: right;
+    	margin-right: 2%;
+			font-size:40px;
+		}
+		.policy{
+			position: fixed;
+			bottom:0;
+			right:0;
+		}
+		.policy a{
+			transition:1s;
+		}
+		.loading{
+			font-size: 40px;
+		}
+		#slider{
+			transition: background 1s;
+			width: 45%;
+			float:left;
+			margin-top:30px;
+	    height: 2px;
+	    background: blue;
+	    border: none;
+	    opacity: 0;
+	    cursor: pointer;
+		}
+		#topbar{
+			position: fixed;
+			top:0;
+			left:0;
+			width:100%;
+		}
+		.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover,.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+		    width: 10px;
+		    height: 10px;
+		    margin-top: -1px;
+		    background: rgba(0,0,0,0);
+		    border-radius: 40px;
+		    border: 2px solid blue;
+		    transition: border 1s;
+		    cursor: pointer;
+		}
+		.overlay{
+			background: rgba(244,244,244,0.7);
+			position: fixed;
+			top:0;
+			left:0;
+			width:100vw;
+			height:100vh;
+			z-index: 8;
+		}
+
+		#searches{
+			padding-top:50px;
+			position: relative;
+			z-index: 9;
+		}
+
+
+		.nav{
+/*			background: rgba(244,244,244,0.8);*/
+/*			position: fixed;*/
+		/*	bottom:0;
+			right:0;*/
+			padding:0px 10px;
+			font-size: 24px;
+			text-align: right
+		}
+		.nav a {
+			color:blue;
+			text-decoration: none;
+			position: relative;
+			display: inline-block;
+		}
+		.nav a:hover{
+/*			opacity: 0.4;*/
+			color: rgba(0,0,255,0.4);
+		}
+
+		.wrapper{
+			padding-top:50px;
+		}
+		.smiley-container{
+			position: relative;
+
+		}
+		.smiley-double{
+			top:0;
+			width:100%;
+			position: absolute;
+			margin-left:-6px;
+		}
+
+		.nav a .tooltip {
+		    visibility: hidden;
+		    width: 150px;
+		    font-size: 12px;
+		    line-height: 1em;
+
+		    color: blue;
+		    text-align: left;
+		    padding: 10px 0;
+		    /* Position the tooltip */
+		    position: absolute;
+		    z-index: 1;
+		}
+		
+		#viewer-link:hover .tooltip{
+			visibility: visible;
+		}
+
+		#home-link:hover .tooltip {
+			visibility: visible;
+		}
+
+		#autosurfers-link:hover .tooltip{
+     visibility: visible;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+	<br><br>
+<!-- 	<h2>View Your Data</h2><br><br> -->
+<div class="overlay"></div>
+	<div id="topbar">
+		<span id="start">Start Date</span><span id='slider'></span><span id="finish">End Date</span>
+	</div>
+	
+	<div class="policy">
+			<a href="./personal_data.html#privacy">Concerned about your privacy?</a>
+			<div class="nav">
+			<a id='home-link' href="./index.html">⌂
+				<span id='tooltip-1' class="tooltip">home</span>
+			</a>
+			<a id='viewer-link' href="./personal_data.html">☺
+				<span id='tooltip-2' class="tooltip">explore your personal data</span>
+			</a>
+			<a id='autosurfers-link' class='smiley-container' href="./autosurfers.html">
+				☺
+				<span class="smiley-double">☺</span>
+				<span id='tooltip-3' class="tooltip">obscure your personal data</span>
+			</a>
+		</div>
+		</div>
+
+	<div id="options">
+
+	</div>
+	
+	<div class="search"><p id='searches'>
+
+		<label for="source-file" class="upload-btn">
+        <input type="file" id="source-file" name="source-file">
+        Select .json File To View Queries
+    </label>
+	    
+	</p></div>
+		<div class="date">Time of Query,    Space to Pause/Play</div>
+	<script src='jquery.min.js'></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src='main.js'></script>
+
+		
+
+	</div>
+</body>
+</html>

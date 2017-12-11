@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>You are What You Search</title>
+	<style>
+		body{
+			background: blue;
+			color:whitesmoke;
+			font-family: courier;
+			font-size:20px;
+
+		}
+    h2{
+    	font-weight: normal;
+    	font-size: 35px;
+    	margin-top:10px;
+    }
+    .modal{
+    	text-align: center;
+			position: fixed;
+			top:20px;
+			margin:0 auto;
+			display: none;
+    }
+    .modal.open{
+    	width:100%;
+    	display: block;
+    }
+    .modal-inner{
+    	background: blue;
+    	color:whitesmoke;
+    	max-width:1000px;
+      display: block;
+    	border:2px solid whitesmoke;
+    	margin:0 auto;
+    	padding:50px;
+    	position: relative;
+    	text-align: left;
+    }
+    .modal-inner .close{
+    	position: absolute;
+    	top:10px;
+    	right:10px;
+    	font-size: 20px;
+    	font-family: sans-serif;
+    	cursor: pointer;
+    }
+    img{
+    	display: block;
+    }
+    #call-modal{
+    	cursor: pointer;
+    }
+    img.large{
+    	height:100px;
+    }
+		img.small{
+			height: 50px;
+		}
+		p a{
+			color:whitesmoke;
+		}
+		a{
+			color: whitesmoke;
+		}
+		.logo{
+			width: 250px;
+			margin-top:20px;
+		}
+		.logo2{
+			width:400px;
+			padding:20px;
+		}
+		.wrapper{
+			display: block;
+			margin:0 auto;
+			max-width: 800px;
+			margin-bottom:50px;
+		}
+		button{
+			background: whitesmoke;
+			color:blue;
+			padding:10px;
+			outline:none;
+			border:none;
+			border-radius: 0px;
+		}
+		button a, button span{
+			font-family: courier;
+			color:blue;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		button span a{
+			text-decoration: none;
+		}
+		button:hover {
+			opacity: 0.8;
+		}
+		#main_logo{
+     animation: mymove 80s  linear infinite;
+     -webkit-animation: mymove 80s linear  infinite;
+		}
+/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes mymove {
+		    from {transform: rotate(0);}
+		    to {transform: rotate(360deg);}
+		} 
+
+		/* Standard syntax */ 
+		@keyframes mymove {
+		    from {transform: rotate(0);}
+		    to {transform: rotate(360deg);}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<img id='main_logo' class='logo' src="./images/filter_bubble_copy.png" alt="">
+		<h2><br>
+    You Are What You Search
+    <br></h2>
+    <p>This project is a meditation on personal data and how it reflects and affects the ways in which we browse the web.</p><br>
+     <button><a href="./personal_data.html">Explore your personal data</a></button><br><br>
+		 <button><a href="./autosurfers.html">Autosurf the web</a></button><br><br>
+		 <button id="call-modal"><span>More About This Project</span></button>
+	</div>
+	<div class="modal">
+		<div class="modal-inner">
+			<div class="close">X</div>
+			How much of our identity can be inferred through data? How much of our identity is <em>informed</em> by data? 
+<br><br>
+		The data “footprints” we leave behind can be extremely personal and deeply intertwined with our offline lives. This data can reveal things about the places we frequent, the people we love, our health, our interests, our insecurities. If we look at our Google Search histories, things like searches for ex-lovers, people that have passed away, strange moles, and other such intimate queries may surface.
+
+		Ironically, while can be so intimate and personal, on a larger scale it is used by AdTech companies to abstract our identities into marketable categories like age, household income, and parental status, and even categories like <a href='https://io9.gizmodo.com/man-receives-the-creepiest-letter-ever-from-officemax-1507020325'>"daughter died in car accident"</a>.
+
+		The tools found on this site serve to challenge how our data is being used externally to define us while also asking us to look at how our data affects the ways in which we define ourselves.
+		</div>
+		
+	</div>
+	<script src='jquery.min.js'></script>
+	<script>
+
+		$('#call-modal').on('click',function(){
+			$('.modal').addClass('open');
+		})
+
+		$('.modal-inner .close').on('click', function(){
+			$('.modal').removeClass('open');
+		})
+	</script>
+</body>
+</html>
